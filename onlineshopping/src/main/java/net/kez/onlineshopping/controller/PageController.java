@@ -1,0 +1,50 @@
+package net.kez.onlineshopping.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class PageController {
+
+	/* @RequestMapping(value = { "/", "/home", "/index" }) */
+	/*
+	 * @RequestMapping("/") public ModelAndView index() { ModelAndView mv = new
+	 * ModelAndView("page"); mv.addObject("greeting", "Welcome to spring MVC");
+	 * return mv; }
+	 */
+
+	@RequestMapping("/")
+	public ModelAndView root() {
+		System.out.println("root page @@@");
+		return new ModelAndView("page");
+
+	}
+
+	@RequestMapping("/home")
+	public ModelAndView home() {
+		return new ModelAndView("page");
+
+	}
+
+	@RequestMapping("/index")
+	public ModelAndView index() {
+		return new ModelAndView("page");
+
+	}
+
+	/*
+	 * @RequestMapping(value = "/test") public ModelAndView
+	 * test(@RequestParam(value = "greeting", required = false) String greet) {
+	 * if (greet == null) { greet = "HI"; } ModelAndView mv = new
+	 * ModelAndView("page"); mv.addObject("greeting", greet); return mv; }
+	 */
+
+	/*
+	 * @RequestMapping(value = "/test/{greeting}") public ModelAndView
+	 * test(@PathVariable(value = "greeting", required = false) String greet) {
+	 * if (greet == null) { greet = "HI"; } ModelAndView mv = new
+	 * ModelAndView("page"); mv.addObject("greeting", greet); return mv; }
+	 */
+
+}
