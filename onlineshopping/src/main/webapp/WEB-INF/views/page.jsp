@@ -34,11 +34,6 @@
 <!-- Bootstrap Readable Theme -->
 <link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
 
-
-<!-- Bootstrap DataTables -->
-<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
-
-
 <!-- Custom CSS -->
 <link href="${css}/myapp.css" rel="stylesheet">
 
