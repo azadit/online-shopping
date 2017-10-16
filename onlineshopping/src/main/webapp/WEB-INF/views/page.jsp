@@ -25,7 +25,9 @@
 <title>Online Shopping - ${title}</title>
 
 <script>
-	windows.menu = '${title}';
+	window.menu = '${title}';
+
+	window.contextRoot = '${contextRoot}'
 </script>
 
 <!-- Bootstrap Core CSS -->
@@ -34,30 +36,29 @@
 <!-- Bootstrap Readable Theme -->
 <link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
 
+
+<!-- Bootstrap DataTables -->
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
+
+
 <!-- Custom CSS -->
 <link href="${css}/myapp.css" rel="stylesheet">
 
 
-
-
-
 </head>
-
-
 
 <body>
 
+	<div class="se-pre-con"></div>
 	<div class="wrapper">
 
 		<!-- Navigation -->
 		<%@include file="./shared/navbar.jsp"%>
 
+		<!-- Page Content -->
 
-
-
-
-		<!-- Pages content-->
 		<div class="content">
+
 			<!-- Loading the home content -->
 			<c:if test="${userClickHome == true }">
 				<%@include file="home.jsp"%>
@@ -73,9 +74,18 @@
 				<%@include file="contact.jsp"%>
 			</c:if>
 
+			<!-- Load only when user clicks contact -->
+			<c:if
+				test="${userClickAllProducts == true or userClickCategoryProducts == true }">
+				<%@include file="listProducts.jsp"%>
+			</c:if>
+			
+			<!-- Load only when user clicks show product -->
+			<c:if test="${userClickShowProduct == true}">
+				<%@include file="singleProduct.jsp"%>
+			</c:if>
+
 		</div>
-
-
 
 
 		<!-- Footer comes here -->
@@ -88,10 +98,17 @@
 		<!-- Bootstrap Core JavaScript -->
 		<script src="${js}/bootstrap.min.js"></script>
 
-		<!-- Self coded JavaScript -->
+		<!-- DataTable Plugin -->
+		<script src="${js}/jquery.dataTables.js"></script>
+
+		<!-- DataTable Bootstrap Script -->
+		<script src="${js}/dataTables.bootstrap.js"></script>
+
+		<!-- Self coded javascript -->
 		<script src="${js}/myapp.js"></script>
 
 	</div>
+
 </body>
 
 </html>
